@@ -6,37 +6,39 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? "color: text-red-500 font-bold" : "")}
+          className={({ isActive }) =>
+            isActive ? "color: text-red-500 font-bold" : ""
+          }
         >
           Home
         </NavLink>
         <NavLink
-          to="/all-toys"
-          className={({ isActive }) => (isActive ? "itIsActive" : "")}
+          to="/allToys"
+          className={({ isActive }) => (isActive ? "color: text-red-500 font-bold" : "")}
         >
           All Toys
         </NavLink>
         <NavLink
-          to="/my-toys"
-          className={({ isActive }) => (isActive ? "bg-yellow-100" : "")}
+          to="/myToys"
+          className={({ isActive }) => (isActive ? "color: text-red-500 font-bold" : "")}
         >
           My Toys
         </NavLink>
         <NavLink
-          to="/add-a-toy"
-          className={({ isActive }) => (isActive ? "itIsActive" : "")}
+          to="/addToys"
+          className={({ isActive }) => (isActive ? "color: text-red-500 font-bold" : "")}
         >
           Add a Toy
         </NavLink>
         <NavLink
           to="/signIn"
-          className={({ isActive }) => (isActive ? "itIsActive" : "")}
+          className={({ isActive }) => (isActive ? "color: text-red-500 font-bold" : "")}
         >
           Sign in
         </NavLink>
         <NavLink
-          to="/singUp"
-          className={({ isActive }) => (isActive ? "itIsActive" : "")}
+          to="/signUp"
+          className={({ isActive }) => (isActive ? "color: text-red-500 font-bold" : "")}
         >
           Sign up
         </NavLink>
@@ -44,7 +46,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className=" w-full flex justify-between px-3 py-2 items-center rounded bg-yellow-400 md:w-[1280px] mx-auto">
+    <div className="  flex justify-between  items-center  bg-yellow-400 px-3 py-2 w-full md:w-[1280px] mx-auto rounded">
       <div className="flex items-center">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -91,7 +93,7 @@ const Navbar = () => {
       <div className="hidden lg:flex ">
         {/* ul for pc */}
         <ul className="menu menu-horizontal text-sm font-semibold px-1">
-            {navLinks}
+          {navLinks}
         </ul>
         {/* ul for pc ends */}
       </div>
