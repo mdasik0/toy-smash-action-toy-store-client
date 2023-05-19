@@ -6,7 +6,7 @@ const Footer = () => {
         backgroundImage:
           "linear-gradient(to bottom,rgba(0, 0, 0, 0.863), rgba(0, 0, 0, 0.863)),url('https://res.cloudinary.com/dragonspell/images/w_1440,h_864,c_fill,dpr_auto,fl_progressive:steep,f_auto/v1571421297/www.travelportland.com/74A1450/74A1450.jpg')",
         backgroundRepeat: "repeat",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: "scroll",
         backgroundSize: "cover",
       }}
       className=""

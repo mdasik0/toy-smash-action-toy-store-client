@@ -99,7 +99,7 @@ const Navbar = () => {
       </div>
       {/* avatar here */}
       <div className="avatar px-3 py-1 ">
-        <div className="md:w-14 w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div className="md:w-10 w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
           <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
       </div>
