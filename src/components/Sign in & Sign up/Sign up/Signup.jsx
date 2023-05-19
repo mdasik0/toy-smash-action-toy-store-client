@@ -147,7 +147,7 @@ const Signup = () => {
           </Link>
         </div>
         <div>
-          <input className="btn bg-red-500 mt-4" type="submit" />
+          <input className="bg-red-500 px-3 py-2 text-white hover:bg-slate-300 font-semibold rounded-sm shadow-md active:shadow-inner active:shadow-black duration-300 shadow-black hover:text-red-500  mt-4" type="submit" />
         </div>
         <div className="divider">OR</div>
         <div className="mt-6 flex gap-5 mb-3 md:mb-0 justify-center">

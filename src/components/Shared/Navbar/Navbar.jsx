@@ -15,23 +15,23 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`mx-3 duration-300 px-[10px] py-[2px] ${({ isActive }) =>
+          className={`mx-3 duration-300 px-[10px] py-[4px] ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Home
         </NavLink>
         <NavLink
           to="/allToys"
-          className={`mx-3 duration-300 px-[10px] py-[2px] ${({ isActive }) =>
+          className={`mx-3 duration-300 px-[10px] py-[4px] ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           All Toys
         </NavLink>
-        {user ? (
-          <>
+        {/* ============================ Toys  =============================== */}
+        
             <NavLink
               to="/myToys"
-              className={`mx-3 duration-300 px-[10px] py-[2px] ${({
+              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -39,23 +39,20 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/addToys"
-              className={`mx-3 duration-300 px-[10px] py-[2px] ${({
+              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
               Add a Toy
             </NavLink>
-          </>
-        ) : (
-          <></>
-        )}
+        {/* ======================== sign in and sign up =============================== */}
         {user ? (
           <></>
         ) : (
           <>
             <NavLink
               to="/signIn"
-              className={`mx-3 duration-300 px-[10px] py-[2px] ${({
+              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -63,7 +60,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/signUp"
-              className={`mx-3 duration-300 px-[10px] py-[2px] ${({
+              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -129,14 +126,15 @@ const Navbar = () => {
   <button className="btn">Hover me</button>
 </div>
       */}
-      
+
       {/* avatar here */}
-      <div data-tip={user?.displayName} className="avatar px-3 text-sm font-semibold tooltip tooltip-bottom">
+      <div
+        data-tip={user?.displayName}
+        className="avatar px-3 text-sm font-semibold tooltip tooltip-bottom"
+      >
         <div className="md:w-14 w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-          
           {user ? (
             <div className="relative">
-              
               <div className="hover:bg-[#00000086] p-5 duration-500 absolute inset-0 text-transparent hover:text-white ">
                 <FaSignOutAlt
                   title="logout"
