@@ -7,6 +7,7 @@ import AddToy from "../components/Pages/AddToyPage/AddToy";
 import MyToy from "../components/Pages/MyToypage/MyToy";
 import AllToys from "../components/Pages/AllToyPage/AllToys";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import SinglePage from "../components/Pages/SinglePage/SinglePage";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
         {
           path: 'allToys',
           element: <AllToys></AllToys>
+        },
+        {
+          path: '/singlePage/:id',
+          element:<PrivateRoute><SinglePage></SinglePage></PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/subCategory/${params.id}`)
         }
       ]
     },
