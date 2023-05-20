@@ -1,10 +1,11 @@
-
 const AllToys = () => {
-    return (
-        <div>
-            All toys here
-        </div>
-    );
+    
+  return (
+    
+    <div>
+        all toys
+    </div>
+  );
 };
 
 export default AllToys;
