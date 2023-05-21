@@ -2,7 +2,7 @@ const Blog = () => {
   return (
     <div className="text-md:pb-6 md:pt-10 gap-5 flex flex-col px-3 mx-0 md:mx-28">
       {/* app starts */}
-
+        <h1 className="text-4xl font-bold text-slate-700">This is Blog Page</h1>
       {/* app ends */}
       <div className="p-6 border-2 mb- border-slate-300 rounded ">
         <h1 className="font-bold mb-4 text-2xl text-black ">
@@ -64,7 +64,7 @@ const Blog = () => {
           (FP) to provide a robust and modular architecture.
         </p>
       </div>
-      <div className="p-6 border-2 border-slate-300 rounded ">
+      <div className="p-6 mb-10 border-2 border-slate-300 rounded ">
         <h1 className="font-bold mb-4 text-2xl text-black ">
           What is MongoDB aggregate and how does it work?
         </h1>

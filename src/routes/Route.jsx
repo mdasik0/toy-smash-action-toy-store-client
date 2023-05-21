@@ -10,11 +10,13 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import SinglePage from "../components/Pages/SinglePage/SinglePage";
 import Update from "../components/Pages/UpdatePage/Update";
 import Blog from "../components/Pages/Blogpage/Blog";
+import ErrorPage from "../components/Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -32,6 +34,7 @@ const router = createBrowserRouter([
         path: "signIn",
         element: <Signin></Signin>,
       },
+      
       {
         path: "addToys",
         element: (

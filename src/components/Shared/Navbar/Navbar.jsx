@@ -54,9 +54,18 @@ const Navbar = () => {
             </NavLink>
         {/* ======================== sign in and sign up =============================== */}
         {user ? (
-          <></>
+          <>
+          <NavLink
+          onClick={handleLogout}
+              className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({
+                isActive,
+              }) => (isActive ? "active" : "")}`}
+            >
+              Log Out
+            </NavLink></>
         ) : (
           <>
+            
             <NavLink
               to="/signIn"
               className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({

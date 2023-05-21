@@ -18,7 +18,7 @@ const AllToys = () => {
   const handleSort = () => {
     const sortBy = "price";
     fetch(
-      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/asikthe1st@gmail.com?sortBy=${sortBy}`
+      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys?sortBy=${sortBy}`
     )
       .then((res) => res.json())
       .then((data) => setData(data));
@@ -30,7 +30,7 @@ const AllToys = () => {
     const search = form.search.value;
 
     fetch(
-      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/asikthe1st@gmail.com/${search}`
+      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys/${search}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -45,6 +45,7 @@ const AllToys = () => {
   };
   return (
     <div className="md:w-[1280px] md:mx-auto w-full mx-3">
+      <h1 className="text-3xl font-bold text-slate-700 mt-6">All Users Toy is Here</h1>
       <form
         onSubmit={handleSubmit}
         className="flex my-10 text-sm font-semibold"

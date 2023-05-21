@@ -33,7 +33,7 @@ const AddToy = () => {
     };
     console.log(data);
     fetch(
-      "https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/asikthe1st@gmail.com",
+      "https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys",
       {
         method: "POST",
         headers: {
