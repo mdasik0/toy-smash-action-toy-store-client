@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 const SubCategory = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/subCategory")
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/subCategory"
+    )
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

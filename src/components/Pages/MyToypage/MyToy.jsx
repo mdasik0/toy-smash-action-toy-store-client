@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MyToy = () => {
   const [data, setData] = useState([]);
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/myToys/${user?.email}`;
+  const url = `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -25,9 +25,12 @@ const MyToy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myToys/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -39,7 +42,6 @@ const MyToy = () => {
       }
     });
   };
-  
 
   return (
     <div className="md:w-[1280px] md:mx-auto w-full mx-3">
@@ -65,12 +67,10 @@ const MyToy = () => {
               <td>{singleData.quantity}</td>
               <td>
                 <Link to={`/update/${singleData._id}`}>
-                <label
-                  className="btn bg-red-500 my-auto border-none btn-sm"
-                >
-                  Update
-                </label>
-                  </Link>
+                  <label className="btn bg-red-500 my-auto border-none btn-sm">
+                    Update
+                  </label>
+                </Link>
               </td>
               {/* delete data */}
               <td>

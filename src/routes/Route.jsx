@@ -11,46 +11,64 @@ import SinglePage from "../components/Pages/SinglePage/SinglePage";
 import Update from "../components/Pages/UpdatePage/Update";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-          path:'/',
-          element: <Home></Home>
-        },
-        {
-          path:'signUp',
-          element:<Signup></Signup>
-        },
-        {
-          path:'signIn',
-          element:<Signin></Signin>
-        },
-        {
-          path:'addToys',
-          element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
-        },
-        {
-          path:'myToys',
-          element: <PrivateRoute><MyToy></MyToy></PrivateRoute>
-        },
-        {
-          path:'/update/:id',
-          element:<Update></Update>,
-          loader: ({params}) => fetch(`http://localhost:5000/singleData/${params.id}`)
-        },
-        {
-          path: 'allToys',
-          element: <AllToys></AllToys>
-        },
-        {
-          path: '/singlePage/:id',
-          element:<PrivateRoute><SinglePage></SinglePage></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/subCategory/${params.id}`)
-        }
-      ]
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "signUp",
+        element: <Signup></Signup>,
+      },
+      {
+        path: "signIn",
+        element: <Signin></Signin>,
+      },
+      {
+        path: "addToys",
+        element: (
+          <PrivateRoute>
+            <AddToy></AddToy>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myToys",
+        element: (
+          <PrivateRoute>
+            <MyToy></MyToy>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(
+            `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData/${params.id}`
+          ),
+      },
+      {
+        path: "allToys",
+        element: <AllToys></AllToys>,
+      },
+      {
+        path: "/singlePage/:id",
+        element: (
+          <PrivateRoute>
+            <SinglePage></SinglePage>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/subCategory/${params.id}`
+          ),
+      },
+    ],
+  },
+]);
 
 export default router;

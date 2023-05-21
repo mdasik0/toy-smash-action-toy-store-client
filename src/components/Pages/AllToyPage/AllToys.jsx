@@ -4,7 +4,9 @@ import Swal from "sweetalert2";
 const AllToys = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allToys")
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData"
+    )
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -13,27 +15,30 @@ const AllToys = () => {
     setData(data.slice(0, 20));
   }
 
+  const handleSort = () => {
+    const sortBy = "price";
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/asikthe1st@gmail.com?sortBy=${sortBy}`
+    )
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
 
-    fetch(`http://localhost:5000/allToys/${search}`)
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/asikthe1st@gmail.com/${search}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (!search) {
-          return Swal.fire(
-            '?!',
-            "Please Write something!",
-            'info'
-          );
+          return Swal.fire("?!", "Please Write something!", "info");
         }
         if (data.length === 0) {
-          return Swal.fire(
-            'Do not Exist',
-            "Can't find the data!",
-            'error'
-          );
+          return Swal.fire("Do not Exist", "Can't find the data!", "error");
         }
         setData(data);
       });
@@ -53,6 +58,12 @@ const AllToys = () => {
           className="border-2 border-black rounded-e-full active:bg-red-500 px-3 bg-slate-200"
         />
       </form>
+      <button
+        onClick={handleSort}
+        className="border-2 border-black rounded-full active:bg-red-500 px-3 bg-slate-200"
+      >
+        Sort by Price
+      </button>
       <table className="table table-zebra my-6 w-full">
         <thead>
           <tr>
@@ -87,23 +98,42 @@ const AllToys = () => {
                 <div className="modal ">
                   <div className="modal-box h-[600px] rounded-lg">
                     <div>
-                      <img className="rounded object-cover object-top w-full  h-[300px]" src={singleData.img} alt="" />
+                      <img
+                        className="rounded object-cover object-top w-full  h-[300px]"
+                        src={singleData.img}
+                        alt=""
+                      />
                     </div>
                     <div className="w-56">
-
-                    <h3 className="font-bold">Toy name : {singleData.name}</h3>
-                    <h4 className="font-semibold mt-3 text-sm">Seller Name : {singleData.sellerName}</h4>
-                    <h4 className="font-semibold text-sm">Seller Email : {singleData.email}</h4>
-                    <h4 className="font-semibold text-sm">Price : {singleData.price}</h4>
-                    <h4 className="font-semibold text-sm">Rating : {singleData.rating}</h4>
-                    <h4 className="font-semibold text-sm">Quantity : {singleData.quantity}</h4>
-                    <h4 className="font-semibold w-1/2 text-sm">Description : {singleData.description}</h4>
-                    <div className="mt-3">
-
-                    <label htmlFor={singleData.name} className="px-4 bg-red-500 text-white hover:bg-slate-800 hover:text-white duration-500 font-semibold text-sm py-2 rounded shadow-xl hover:shadow-inner hover:shadow-slate-500  my-3">
-                        Buy now!
-                    </label>
-                    </div>
+                      <h3 className="font-bold">
+                        Toy name : {singleData.name}
+                      </h3>
+                      <h4 className="font-semibold mt-3 text-sm">
+                        Seller Name : {singleData.sellerName}
+                      </h4>
+                      <h4 className="font-semibold text-sm">
+                        Seller Email : {singleData.email}
+                      </h4>
+                      <h4 className="font-semibold text-sm">
+                        Price : {singleData.price}
+                      </h4>
+                      <h4 className="font-semibold text-sm">
+                        Rating : {singleData.rating}
+                      </h4>
+                      <h4 className="font-semibold text-sm">
+                        Quantity : {singleData.quantity}
+                      </h4>
+                      <h4 className="font-semibold w-1/2 text-sm">
+                        Description : {singleData.description}
+                      </h4>
+                      <div className="mt-3">
+                        <label
+                          htmlFor={singleData.name}
+                          className="px-4 bg-red-500 text-white hover:bg-slate-800 hover:text-white duration-500 font-semibold text-sm py-2 rounded shadow-xl hover:shadow-inner hover:shadow-slate-500  my-3"
+                        >
+                          Buy now!
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
