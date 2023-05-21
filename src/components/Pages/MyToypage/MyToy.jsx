@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyToy = () => {
   const [data, setData] = useState([]);
@@ -32,12 +33,13 @@ const MyToy = () => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
-        });
+          });
         const remaining = data.filter((item) => item._id !== id);
         setData(remaining);
       }
     });
   };
+  
 
   return (
     <div className="md:w-[1280px] md:mx-auto w-full mx-3">
@@ -62,10 +64,15 @@ const MyToy = () => {
               <td>{singleData.price}</td>
               <td>{singleData.quantity}</td>
               <td>
-                <button className="btn bg-red-500 my-auto border-none btn-sm">
+                <Link to={`/update/${singleData._id}`}>
+                <label
+                  className="btn bg-red-500 my-auto border-none btn-sm"
+                >
                   Update
-                </button>
+                </label>
+                  </Link>
               </td>
+              {/* delete data */}
               <td>
                 <button
                   onClick={() => {
