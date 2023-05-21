@@ -15,14 +15,14 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={`mx-3 duration-300 px-[10px] py-[4px] ${({ isActive }) =>
+          className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           Home
         </NavLink>
         <NavLink
           to="/allToys"
-          className={`mx-3 duration-300 px-[10px] py-[4px] ${({ isActive }) =>
+          className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({ isActive }) =>
             isActive ? "active" : ""}`}
         >
           All Toys
@@ -31,7 +31,7 @@ const Navbar = () => {
         
             <NavLink
               to="/myToys"
-              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
+              className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -39,7 +39,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/addToys"
-              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
+              className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -52,7 +52,7 @@ const Navbar = () => {
           <>
             <NavLink
               to="/signIn"
-              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
+              className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -60,7 +60,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/signUp"
-              className={`mx-3 duration-300 px-[10px] py-[4px] ${({
+              className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({
                 isActive,
               }) => (isActive ? "active" : "")}`}
             >
@@ -72,7 +72,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="  flex justify-between  items-center  bg-slate-800 text-white px-3 py-2 w-full md:w-[1280px] mx-auto rounded">
+    <div className="  flex justify-between  items-center  text-red-500 px-3 py-2 w-full md:w-[1280px] mx-auto rounded">
       <div className="flex items-center">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -108,7 +108,7 @@ const Navbar = () => {
               src="/src/assets/logo-cropped.png"
               alt=""
             />
-            <div className="md:text-3xl md:order-2 order-1 text-xl flex ">
+            <div className="md:text-3xl text-slate-800 md:order-2 order-1 text-xl flex ">
               {" "}
               Toy <span className="text-red-500 ml-1">Smash</span>
             </div>
