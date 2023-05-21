@@ -27,6 +27,13 @@ const Navbar = () => {
         >
           All Toys
         </NavLink>
+        <NavLink
+          to="/blog"
+          className={`mx-3 duration-300 hover:bg-red-400 rounded hover:text-slate-200 px-[10px] py-[4px] ${({ isActive }) =>
+            isActive ? "active" : ""}`}
+        >
+          Blog
+        </NavLink>
         {/* ============================ Toys  =============================== */}
         
             <NavLink

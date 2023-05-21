@@ -9,7 +9,7 @@ const Home = () => {
             <div className="md:w-[1280px] mx-auto font-semibold my-10 divider">Sort by Category</div>
             <SubCategory></SubCategory>
             <div className="md:w-[1280px] mx-auto font-semibold my-10 divider">Gallery</div>
-            <Gallery></Gallery>
+            <Gallery className='my-10'></Gallery>
         </div>
     );
 };
