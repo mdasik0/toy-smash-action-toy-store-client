@@ -11,7 +11,7 @@ const Banner = () => {
           <p className="text-white font-thin w-[300px]">in here we have a lot of varites and sizes of Action Toys,We also have many different form and many varients of these. <span className="text-red-500">Please Swipe left or Right to See more...</span> </p>
       </div>
           <div className="md:block hidden ">
-            <img src="/public/spiderman-removebg-preview.png" alt="" />
+            <img src="/spiderman-removebg-preview.png" alt="" />
           </div>
         </div>
         </div>

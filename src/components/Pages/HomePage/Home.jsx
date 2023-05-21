@@ -1,5 +1,6 @@
 import Banner from "./Banner/Banner";
 import Extraone from "./Extraone/Extraone";
+import Extratwo from "./Extratwo/Extratwo";
 import Gallery from "./Gallery/Gallery";
 import SubCategory from "./SubCategory/SubCategory";
 
@@ -13,6 +14,8 @@ const Home = () => {
             <Gallery className='my-10'></Gallery>
             <div className="md:w-[1280px] mx-auto font-semibold my-10 divider">Featured</div>
             <Extraone className='my-10'></Extraone>
+            <div className="md:w-[1280px] mx-auto font-semibold my-10 divider">Discounted Sell</div>
+            <Extratwo className='my-10'></Extratwo>
         </div>
     );
 };
