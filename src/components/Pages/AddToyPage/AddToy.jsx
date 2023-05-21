@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -41,7 +42,11 @@ const AddToy = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("data has been added");
+          Swal.fire(
+            'Good job!',
+            'Toy Has been Added',
+            'success'
+          )
         }
       });
   };

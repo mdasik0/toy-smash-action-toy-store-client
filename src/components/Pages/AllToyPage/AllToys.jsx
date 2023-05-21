@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const AllToys = () => {
   const [data, setData] = useState([]);
@@ -21,10 +22,18 @@ const AllToys = () => {
       .then((res) => res.json())
       .then((data) => {
         if (!search) {
-          return alert("please give something as a input");
+          return Swal.fire(
+            '?!',
+            "Please Write something!",
+            'info'
+          );
         }
         if (data.length === 0) {
-          return alert("can't find the item");
+          return Swal.fire(
+            'Do not Exist',
+            "Can't find the data!",
+            'error'
+          );
         }
         setData(data);
       });

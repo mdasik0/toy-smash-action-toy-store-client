@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyToy = () => {
   const [data, setData] = useState([]);
   const { user } = useContext(AuthContext);
-  console.log(user);
-  // const [egData, setEgData] = useState("");
   const url = `http://localhost:5000/myToys/${user?.email}`;
   useEffect(() => {
     fetch(url)
@@ -13,7 +12,33 @@ const MyToy = () => {
       .then((data) => setData(data));
   }, [url]);
 
-  console.log(data);
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/myToys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+        });
+        const remaining = data.filter((item) => item._id !== id);
+        setData(remaining);
+      }
+    });
+  };
+
   return (
     <div className="md:w-[1280px] md:mx-auto w-full mx-3">
       <table className="table table-zebra my-6 w-full">
@@ -42,8 +67,13 @@ const MyToy = () => {
                 </button>
               </td>
               <td>
-                <button className="btn btn-circle bg-red-500 my-auto border-none btn-sm">
-                <svg
+                <button
+                  onClick={() => {
+                    handleDelete(singleData._id);
+                  }}
+                  className="btn btn-circle bg-red-500 my-auto border-none btn-sm"
+                >
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
                     fill="none"
@@ -58,7 +88,6 @@ const MyToy = () => {
                     />
                   </svg>
                 </button>
-
               </td>
             </tr>
           ))}

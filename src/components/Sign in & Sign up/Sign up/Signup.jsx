@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const { createUser, googleSignin, gitHubSignin } = useContext(AuthContext);
@@ -28,6 +29,11 @@ const Signup = () => {
         const user = result.user;
         console.log(user);
         navigate("/signin");
+        Swal.fire(
+          'Good job!',
+          'You Have created a User!',
+          'success'
+        )
       })
       .catch((error) => {
         setError(error);
