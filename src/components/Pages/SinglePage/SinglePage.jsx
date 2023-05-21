@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const SinglePage = () => {
   const data = useLoaderData();
-  console.log(data);
+  
   const {img,subCategory,name,price,quantity,rating,sellerEmail,sellerName,description} = data;
   return (
     <div className="hero min-h-screen bg-base-200">
