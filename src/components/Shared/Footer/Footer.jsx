@@ -19,7 +19,7 @@ const Footer = () => {
           >
             <img
               className="w-14 bg-yellow-400 order-2 md:order-1 rounded-full md:block hidden"
-              src="/src/assets/logo_cropped.png"
+              src="https://i.ibb.co/hfDB2yP/logo-cropped.png"
               alt=""
             />
             <div className="md:text-3xl website-name text-white md:order-2 order-1 ml-3 text-xl flex ">

@@ -129,7 +129,7 @@ const Navbar = () => {
           >
             <img
               className="w-14 order-2 md:order-1 bg-[#ffffffab] md:mr-2 rounded-full md:block hidden"
-              src="/src/assets/logo_cropped.png"
+              src="https://i.ibb.co/hfDB2yP/logo-cropped.png"
               alt=""
             />
             <div className="md:text-3xl website-name text-slate-800 md:order-2 order-1 text-xl flex ">
