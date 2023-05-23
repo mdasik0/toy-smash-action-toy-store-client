@@ -29,8 +29,16 @@ const Home = () => {
       >
         Customer feedback
       </h1>
-      <p className="font-thin text-black py-3 px-4">
-      At our toy website, we deeply value and appreciate the feedback provided by our customers. We believe that customer feedback is an invaluable source of insights that helps us understand their needs, preferences, and expectations. It allows us to continually improve our offerings and provide an exceptional experience for every visitor.
+      <p
+        data-aos="fade-right"
+        data-aos-duration="800"
+        className="font-thin text-center text-black py-3 px-4"
+      >
+        At our toy website, we deeply value and appreciate the feedback provided
+        by our customers. We believe that customer feedback is an invaluable
+        source of insights that helps us understand their needs, preferences,
+        and expectations. It allows us to continually improve our offerings and
+        provide an exceptional experience for every visitor.
       </p>
       <Extratwo className="my-10"></Extratwo>
     </div>

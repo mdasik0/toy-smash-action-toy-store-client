@@ -2,7 +2,7 @@ const Extratwo = () => (
   <div className="md:w-[1280px] md:my-10 my-3 md:mx-auto w-full grid gap-10 md:grid-cols-2 grid-cols-1  ">
     {/* card here */}
       {/* image */}
-      <div className="w-[350px] my-6 relative mx-auto bg-slate-100 rounded-xl h-[490px]">
+      <div data-aos="zoom-in" data-aos-duration="1400" className="w-[350px] my-6 relative mx-auto bg-slate-100 rounded-xl h-[490px]">
         <div className="h-[250px] rounded-xl bg-green-300">
           <img className="h-full w-full object-cover rounded-xl" src="https://i.pinimg.com/564x/0a/78/73/0a7873423321e4cfeefe8d143d35c7d7.jpg" alt="" />
           </div>
@@ -33,7 +33,7 @@ const Extratwo = () => (
       {/* card ends */}
     {/* card here */}
       {/* image */}
-      <div className="w-[350px] my-6 relative mx-auto bg-slate-100 rounded-xl h-[490px]">
+      <div data-aos="zoom-in" data-aos-duration="1400" className="w-[350px] my-6 relative mx-auto bg-slate-100 rounded-xl h-[490px]">
         <div className="h-[250px] rounded-xl bg-green-300">
             <img className="object-cover w-full h-full object-to rounded-xl" src="https://i.pinimg.com/564x/83/15/af/8315af5fc9e83aef6419aa8134a763f4.jpg" alt="" />
           </div>
