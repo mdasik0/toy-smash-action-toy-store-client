@@ -1,71 +1,69 @@
-const Extratwo = () => {
-  return (
-    <div className="md:w-[1280px] md:my-10 my-3 md:mx-auto mx-3 w-full grid gap-10 md:grid-cols-3 grid-cols-1  ">
-      <div className="card rounded-lg w-96 bg-base-100 shadow-xl image-full">
-        <figure>
-          <img src="/src/assets/assets/img_14.jpg" alt="Key Chain" />
-        </figure>
-        <div className="card-body p-16">
-          <h2 className="card-title">Key Chain!</h2>
-          <p>DeadPool key chains </p>
-          <div className="badge badge-accent">30% off</div>
-          <div className="">
-            <span className="line-through">$45</span> now at{" "}
-            <span className="text-3xl font-bold">$30 !!!</span>
+const Extratwo = () => (
+  <div className="md:w-[1280px] md:my-10 my-3 md:mx-auto w-full grid gap-10 md:grid-cols-2 grid-cols-1  ">
+    {/* card here */}
+      {/* image */}
+      <div className="w-[350px] my-6 relative mx-auto bg-slate-100 rounded-xl h-[490px]">
+        <div className="h-[250px] rounded-xl bg-green-300">
+          <img className="h-full w-full object-cover rounded-xl" src="https://i.pinimg.com/564x/0a/78/73/0a7873423321e4cfeefe8d143d35c7d7.jpg" alt="" />
           </div>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+        {/* body */}
+        <div className="h-[236px] rounded-b-xl bg-slate-100">
+          {/* tagbox */}
+          <div className="p-6 flex items-start flex-col gap-2">
+            <div className="flex gap-3">
+              <div className="text-xs rounded-full font-extrabold bg-[#ffc80080] px-2 py-[2px]">
+                Dc Universe
+              </div>
+              <div className="text-xs rounded-full font-extrabold px-2 py-[2px]  border">
+                BatMan
+              </div>
+            </div>
+            <div className="text-xs rounded-full font-extrabold px-2 py-[2px] border">
+              Tuesday, May 4th,2023
+            </div>
           </div>
-        </div>
-      </div>
-      <div data-aos="zoom-in">
-        <div className="card rounded-lg w-96 bg-base-100 shadow-xl image-full">
-          <figure>
-            <img
-              className=""
-              src="/src/assets/assets/img_12.jpg"
-              alt="Key Chain"
-            />
-          </figure>
-          <div className="card-body p-16">
-            <h2 className="card-title">Iron man doll!</h2>
-            <p>Iron Man Golden doll</p>
-            <div className="badge badge-accent">45% off</div>
-            <div className="">
-              <span className="line-through">$99</span> now at{" "}
-              <span className="text-3xl font-bold">$53 !!!</span>
-            </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+          <div className="text-xl p-6 font-bold">
+            After  a while i finally found the toy i wanted in here. I ...
           </div>
         </div>
+        <button className="absolute left-6 bg-[#FFC600] font-bold px-3 py-[7px] text-sm rounded-full text-black  -bottom-3">
+          Read more &gt;{" "}
+        </button>
       </div>
-      <div data-aos="zoom-in">
-        <div className="card rounded-lg w-96 bg-base-100 shadow-xl image-full">
-          <figure>
-            <img
-              className=""
-              src="/src/assets/assets/img_24.jpg"
-              alt="Key Chain"
-            />
-          </figure>
-          <div className="card-body p-16">
-            <h2 className="card-title">Yoda plusshi!</h2>
-            <p>Yoda Plussi made with 100% Cotton</p>
-            <div className="badge text-xl badge-accent">50% off</div>
-            <div className="">
-              <span className="line-through">$199</span> now at{" "}
-              <span className="text-3xl font-bold">$99 !!!</span>
+      {/* card ends */}
+    {/* card here */}
+      {/* image */}
+      <div className="w-[350px] my-6 relative mx-auto bg-slate-100 rounded-xl h-[490px]">
+        <div className="h-[250px] rounded-xl bg-green-300">
+            <img className="object-cover w-full h-full object-to rounded-xl" src="https://i.pinimg.com/564x/83/15/af/8315af5fc9e83aef6419aa8134a763f4.jpg" alt="" />
+          </div>
+        {/* body */}
+        <div className="h-[236px] rounded-b-xl bg-slate-100">
+          {/* tagbox */}
+          <div className="p-6 flex items-start flex-col gap-2">
+            <div className="flex gap-3">
+              <div className="text-xs rounded-full font-extrabold bg-[#ffc80080] px-2 py-[2px]">
+                Marvel Universe
+              </div>
+              <div className="text-xs rounded-full font-extrabold px-2 py-[2px]  border">
+                Deadpool
+              </div>
             </div>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
+            <div className="text-xs rounded-full font-extrabold px-2 py-[2px] border">
+              Tuesday, May 9th,2023
             </div>
           </div>
+          <div className="text-xl p-6 font-bold">
+            I am very happy with my purchase here. I suggest ...
+          </div>
         </div>
+        <button className="absolute left-6 bg-[#FFC600] font-bold px-3 py-[7px] text-sm rounded-full text-black  -bottom-3">
+          Read more &gt;{" "}
+        </button>
       </div>
-    </div>
-  );
-};
+      {/* card ends */}
+
+  </div>
+);
 
 export default Extratwo;

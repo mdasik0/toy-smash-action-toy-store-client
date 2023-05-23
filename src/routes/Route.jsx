@@ -11,6 +11,7 @@ import SinglePage from "../components/Pages/SinglePage/SinglePage";
 import Update from "../components/Pages/UpdatePage/Update";
 import Blog from "../components/Pages/Blogpage/Blog";
 import ErrorPage from "../components/Pages/ErrorPage/ErrorPage";
+import Toy from "../components/Pages/Toy/Toy";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
+        element: <Blog></Blog>,
       },
       {
         path: "signUp",
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         path: "signIn",
         element: <Signin></Signin>,
       },
-      
+
       {
         path: "addToys",
         element: (
@@ -55,9 +56,17 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(
-            `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData/${params.id}`
-          ),
+          fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData/${params.id}`),
+      },
+      {
+        path: "/toy/:id",
+        element: (
+          <PrivateRoute>
+            <Toy></Toy>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData/${params.id}`),
       },
       {
         path: "allToys",
@@ -71,9 +80,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/subCategory/${params.id}`
-          ),
+          fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/Category/${params.id}`),
       },
     ],
   },

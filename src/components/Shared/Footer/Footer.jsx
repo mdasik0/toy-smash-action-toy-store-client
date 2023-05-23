@@ -16,16 +16,15 @@ const Footer = () => {
           {/* logo */}
           <div
             className="flex items-center"
-            style={{ fontFamily: "Bangers, cursive" }}
           >
             <img
               className="w-14 bg-yellow-400 order-2 md:order-1 rounded-full md:block hidden"
-              src="/src/assets/logo-cropped.png"
+              src="/src/assets/logo_cropped.png"
               alt=""
             />
-            <div className="md:text-3xl text-white md:order-2 order-1 ml-3 text-xl flex ">
-              {" "}
-              Toy <span className="text-red-500 ml-1">Smash</span>
+            <div className="md:text-3xl website-name text-white md:order-2 order-1 ml-3 text-xl flex ">
+             
+              Toy <span className="text-red-500 website-name ml-1">Smash</span>
             </div>
           </div>
           {/* logo ends here */}
@@ -61,6 +60,7 @@ const Footer = () => {
             <h1 className="font-bold text-xl text-slate-400 mb-3">
               Contact info:
             </h1>
+            <h4 className="mb-2">Address : 19/B,Road 3,Dhanmondi,Dhaka-1205.</h4>
             <h4 className="mb-2">Phone : +8801020304050</h4>
             <h4 className="mb-2">Email : toysmash@gmail.com</h4>
             <h4 className="mb-2">Yahoo : toysmash@yahoo.com</h4>

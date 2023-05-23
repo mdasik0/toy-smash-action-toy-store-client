@@ -2,8 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useTitle from "../../../hooks/useTitle";
 
 const MyToy = () => {
+  useTitle('My Toys')
   const [data, setData] = useState([]);
   const { user } = useContext(AuthContext);
   const url = `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/myToys/${user?.email}`;
@@ -43,8 +45,33 @@ const MyToy = () => {
     });
   };
 
+  const handleSortone = () => {
+    
+    fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/sortOne/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  };
+  const handleSorttwo = () => {
+    
+    fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/sortTwo/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  };
+
   return (
     <div className="md:w-[1280px] md:mx-auto w-full mx-3">
+      <button
+        onClick={handleSorttwo}
+        className="border-2 border-black rounded-full active:bg-red-500 px-3 bg-slate-200"
+      >
+        Sort by ascending
+      </button>
+      <button
+        onClick={handleSortone}
+        className="border-2 border-black rounded-full active:bg-red-500 px-3 bg-slate-200"
+      >
+        Sort by descending
+      </button>
       <table className="table table-zebra my-6 w-full">
         <thead>
           <tr>

@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaLock, FaRegEnvelope, FaRegFileImage, FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const Signup = () => {
-  const { createUser, googleSignin, gitHubSignin } = useContext(AuthContext);
+  const { createUser, googleSignin,  } = useContext(AuthContext);
+  useTitle('SignUp')
   const navigate = useNavigate();
 
   // -------------------------------
@@ -53,15 +55,7 @@ const Signup = () => {
   };
 
   //============== Github ==============
-  const handleGitHubSignIn = () => {
-    gitHubSignin()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate("/");
-      })
-      .catch((error) => console.error(error));
-  };
+  
 
   return (
     <div className="md:pb-6 md:pt-10 px-3 mx-0 md:mx-28 flex justify-center">
@@ -74,69 +68,73 @@ const Signup = () => {
         {/* title */}
         <h3 className="text-2xl font-extrabold mb-4">Sign up</h3>
 
-        {/* email field */}
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="email"
-            name="email"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="floating_email"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Email address
+        {/* email */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Your Email</span>
+          </label>
+          <label className="input-group">
+            <span><FaRegEnvelope></FaRegEnvelope></span>
+            <input
+              type="email"
+              name="email"
+              placeholder="input your email here"
+              className="input input-bordered"
+              required
+            />
           </label>
         </div>
-        {/* password field */}
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="password"
-            name="password"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="floating_email"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Password
+        {/* email end */}
+        {/* password */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Your Password</span>
+          </label>
+          <label className="input-group">
+            <span><FaLock></FaLock></span>
+            <input
+              type="password"
+              name="password"
+              placeholder="input your password here"
+              className="input input-bordered"
+              required
+            />
           </label>
         </div>
+        {/* password end */}
+        {/* Name */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <label className="input-group">
+            <span><FaUserCircle></FaUserCircle></span>
+            <input
+              type="text"
+              name="name"
+              placeholder="input your fullname here"
+              className="input input-bordered"
+            />
+          </label>
+        </div>
+        {/* Name end */}
+        {/* PhotoUrl */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">PhotoURL here</span>
+          </label>
+          <label className="input-group">
+            <span><FaRegFileImage></FaRegFileImage></span>
+            <input
+              type="text"
+              name="photo"
+              placeholder="input your profile pic here"
+              className="input input-bordered"
+            />
+          </label>
+        </div>
+        {/* PhotoUrl end */}
 
-        {/* name field */}
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="text"
-            name="name"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-          />
-          <label
-            htmlFor="floating_first_name"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Name
-          </label>
-        </div>
-        {/* photoURl field */}
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="text"
-            name="photo"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-          />
-          <label
-            htmlFor="floating_email"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Photo URL
-          </label>
-        </div>
 
         <div className="text-sm">
           {
@@ -153,26 +151,25 @@ const Signup = () => {
           </Link>
         </div>
         <div>
-          <input className="bg-red-500 px-3 py-2 text-white hover:bg-slate-300 font-semibold rounded-sm shadow-md active:shadow-inner active:shadow-black duration-300 shadow-black hover:text-red-500  mt-4" type="submit" />
+        <div>
+          <input
+            className="text-black border-2 border-black px-3 rounded-full mt-3 hover:bg-slate-900 duration-500 hover:text-white py-[6px]"
+            type="submit"
+            value='Sign In'
+          />
+        </div>
         </div>
         <div className="divider">OR</div>
         <div className="mt-6 flex gap-5 mb-3 md:mb-0 justify-center">
           <div
             onClick={handleGoogleSignIn}
             data-tip="Login with Google"
-            className="border-2 py-[4px] tooltip rounded-full cursor-pointer mt-3 px-3 text-slate-700 font-bold flex items-center border-slate-300"
+            className="tooltip text-black border-2 border-black px-3 rounded-full mt-3 hover:bg-slate-900 duration-500 hover:text-white py-[6px] flex items-center"
           >
             <FaGoogle></FaGoogle>
             <p className="ml-3">Google</p>
           </div>
-          <div
-            data-tip="Login with Github"
-            onClick={handleGitHubSignIn}
-            className=" tooltip border-2 py-[4px]  rounded-full cursor-pointer px-3 mt-3 text-slate-700 font-bold flex items-center border-slate-300"
-          >
-            <FaGithub></FaGithub>
-            <p className="ml-3">Github</p>
-          </div>
+          
         </div>
       </form>
     </div>

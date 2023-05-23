@@ -1,4 +1,7 @@
+import useTitle from "../../../hooks/useTitle";
+
 const Blog = () => {
+  useTitle('Blogs')
   return (
     <div className="text-md:pb-6 md:pt-10 gap-5 flex flex-col px-3 mx-0 md:mx-28">
       {/* app starts */}

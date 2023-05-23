@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const AllToys = () => {
+  useTitle('All Toys')
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData"
-    )
+    fetch("https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/singleData")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -14,29 +15,27 @@ const AllToys = () => {
   if (data.length > 20) {
     setData(data.slice(0, 20));
   }
-
-  const handleSort = () => {
-    const sortBy = "price";
-    fetch(
-      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys?sortBy=${sortBy}`
-    )
+  // sort by ascending order
+  const handleSort = (sortBy) => {
+    
+    fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys?sortBy=${sortBy}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   };
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const search = form.search.value;
+    if (!search) {
+      return Swal.fire("?!", "Please Write something!", "info");
+    }
 
-    fetch(
-      `https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys/${search}`
-    )
+    fetch(`https://b7a11-toy-marketplace-server-side-mdasik0.vercel.app/allToys/${search}`)
       .then((res) => res.json())
       .then((data) => {
-        if (!search) {
-          return Swal.fire("?!", "Please Write something!", "info");
-        }
         if (data.length === 0) {
           return Swal.fire("Do not Exist", "Can't find the data!", "error");
         }
@@ -45,7 +44,9 @@ const AllToys = () => {
   };
   return (
     <div className="md:w-[1280px] md:mx-auto w-full mx-3">
-      <h1 className="text-3xl font-bold text-slate-700 mt-6">All Users Toy is Here</h1>
+      <h1 className="text-3xl font-bold text-slate-700 mt-6">
+        All Users Toy is Here
+      </h1>
       <form
         onSubmit={handleSubmit}
         className="flex my-10 text-sm font-semibold"
@@ -60,10 +61,16 @@ const AllToys = () => {
         />
       </form>
       <button
-        onClick={handleSort}
+        onClick={() => handleSort("asc")}
         className="border-2 border-black rounded-full active:bg-red-500 px-3 bg-slate-200"
       >
-        Sort by Price
+        Sort by ascending
+      </button>
+      <button
+        onClick={() => handleSort("dsc")}
+        className="border-2 border-black rounded-full active:bg-red-500 px-3 bg-slate-200"
+      >
+        Sort by descending
       </button>
       <table className="table table-zebra my-6 w-full">
         <thead>
@@ -85,59 +92,9 @@ const AllToys = () => {
               <td>{singleData.price}</td>
               <td>{singleData.quantity}</td>
               <td>
-                <label
-                  htmlFor={singleData.name}
-                  className="btn bg-red-500 my-auto border-none btn-sm"
-                >
-                  View Details
+                <label className="btn bg-red-500 my-auto border-none btn-sm">
+                  <Link to={`/toy/${singleData._id}`}>View Details</Link>
                 </label>
-                <input
-                  type="checkbox"
-                  id={singleData.name}
-                  className="modal-toggle "
-                />
-                <div className="modal ">
-                  <div className="modal-box h-[600px] rounded-lg">
-                    <div>
-                      <img
-                        className="rounded object-cover object-top w-full  h-[300px]"
-                        src={singleData.img}
-                        alt=""
-                      />
-                    </div>
-                    <div className="w-56">
-                      <h3 className="font-bold">
-                        Toy name : {singleData.name}
-                      </h3>
-                      <h4 className="font-semibold mt-3 text-sm">
-                        Seller Name : {singleData.sellerName}
-                      </h4>
-                      <h4 className="font-semibold text-sm">
-                        Seller Email : {singleData.email}
-                      </h4>
-                      <h4 className="font-semibold text-sm">
-                        Price : {singleData.price}
-                      </h4>
-                      <h4 className="font-semibold text-sm">
-                        Rating : {singleData.rating}
-                      </h4>
-                      <h4 className="font-semibold text-sm">
-                        Quantity : {singleData.quantity}
-                      </h4>
-                      <h4 className="font-semibold w-1/2 text-sm">
-                        Description : {singleData.description}
-                      </h4>
-                      <div className="mt-3">
-                        <label
-                          htmlFor={singleData.name}
-                          className="px-4 bg-red-500 text-white hover:bg-slate-800 hover:text-white duration-500 font-semibold text-sm py-2 rounded shadow-xl hover:shadow-inner hover:shadow-slate-500  my-3"
-                        >
-                          Buy now!
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </td>
             </tr>
           ))}
